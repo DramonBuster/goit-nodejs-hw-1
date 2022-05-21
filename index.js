@@ -3,8 +3,8 @@ const {
     getContactById,
     addContact,
     removeContact
-} = import('./contacts');
-const argv = import('yargs').argv;
+} = require('./contacts');
+const argv = require('yargs').argv;
 
 // TODO: рефакторить
 async function invokeAction({ action, id, name, email, phone }) {
@@ -16,7 +16,7 @@ async function invokeAction({ action, id, name, email, phone }) {
       break;
 
       case 'get':
-          const searchedContact = getContactById(id);
+          const searchedContact = await getContactById(id);
 
           if (!searchedContact) {
                 throw new Error(`Contact with id=${id} is not found. Try again!`)

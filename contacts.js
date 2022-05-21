@@ -19,7 +19,7 @@ async function listContacts() {
 async function getContactById(contactId) {
   // ...твой код
     const contactsList = await listContacts();
-    const searchedContact = contactsList.find(contact => contact.id === contactId.toString());
+    const searchedContact = contactsList.find(contact => contact.id === `${contactId}`.toString());
     
     if (!searchedContact) {
         return null;
